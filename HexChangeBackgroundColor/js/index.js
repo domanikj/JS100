@@ -1,7 +1,7 @@
 // Init var
 let body = document.getElementsByTagName('body')[0];
 let btn   = document.getElementById('changeColor')  
-
+let txt   = document.getElementById('hexName')
 // Add event 
 btn.addEventListener('click', changeColor);
 
@@ -36,5 +36,6 @@ function changeColor() {
 
    let finalHex =   '#'+keepTwo( `${argOne}${argTwo}${argTwo}`);
    
+   txt.textContent = 'Hex value is: ' + finalHex;
    body.style.backgroundColor = finalHex;
 }
