@@ -1,4 +1,8 @@
-const quotes = [
+// Function to run as soon as  stacks reaches it 
+(function (){{ 
+
+  // Quotes obj
+  const quotes = [
     {
       quote:
         "Life is too short and sweet to be spent by cribbing and complaining about things. Here are some random quotes about the most wonderful gift that we've got",
@@ -29,3 +33,23 @@ const quotes = [
       author: " Tyne Daly"
     }
   ];
+
+// Event
+refreshQuote.addEventListener('click', newQuote);
+
+/*
+* Function to refresh card with new author and quote
+* param {None}
+* return {None}
+*/
+function newQuote() {
+  let rand = Math.floor((Math.random() * quotes.length )) ;
+  let changeAuthor  = document.getElementById('author');
+  let changeQuote   = document.getElementsByClassName('card-text')[0];
+  let  refreshQuote   = document.getElementsByClassName('card-link')[0];
+
+
+  changeAuthor.textContent = quotes[rand].author;
+  changeQuote.textContent= quotes[rand].quote;
+}
+}})();
