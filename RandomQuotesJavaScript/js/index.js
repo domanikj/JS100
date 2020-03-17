@@ -34,6 +34,10 @@
     }
   ];
 
+  // Init var to button
+  let  refreshQuote   = document.getElementsByClassName('card-link')[0];
+
+
 // Event
 refreshQuote.addEventListener('click', newQuote);
 
@@ -46,7 +50,6 @@ function newQuote() {
   let rand = Math.floor((Math.random() * quotes.length )) ;
   let changeAuthor  = document.getElementById('author');
   let changeQuote   = document.getElementsByClassName('card-text')[0];
-  let  refreshQuote   = document.getElementsByClassName('card-link')[0];
 
 
   changeAuthor.textContent = quotes[rand].author;
