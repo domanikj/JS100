@@ -22,15 +22,7 @@ let count = 0;
 let cusArr = [ cus1, cus2, cus3, cus4, cus5 ] ;
 let length = cusArr.length;
 
-// btns.forEach(
-//     function(currentValue  ) {
-//         console.log( currentValue );
-//     }
-    
-// );
-// prevBtn.addEventListener('click', () => {
-//     console.log("ddd")
-// })   
+
 function displayData(name, text, image) {
     cusName.textContent = name;
     cusText.textContent = text;
@@ -38,34 +30,27 @@ function displayData(name, text, image) {
 }
 btns.forEach(element=> {
 
-console.log("before before button " + count)
+console.log("before before button " + count);
     if(element.classList.contains('prevBtn')) {
         prevBtn.addEventListener('click', () => {
             if(count=== 0){
-                count = cusArr.length
+                count = cusArr.length;
            }
-
             count--;
-            displayData( cusArr[count].name, cusArr[count].text, cusArr[count].img)
-
-            
-
-        })
+            displayData( cusArr[count].name, cusArr[count].text, cusArr[count].img);
+        });
         }
     
-
     if(element.classList.contains('nextBtn')) {
-
         nextBtn.addEventListener('click', () => {
-           
+
          if( count <= length - 1){
-             console.log("next" + " " + count)
-      displayData( cusArr[count].name, cusArr[count].text, cusArr[count].img)
+             console.log("next" + " " + count);
+      displayData( cusArr[count].name, cusArr[count].text, cusArr[count].img);
              count++;
          }else{
              count = 0
          }    
         })
-
     }
 })
