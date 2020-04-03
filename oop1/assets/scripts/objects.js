@@ -1,10 +1,10 @@
 class Movie {
-  #rating = movierating
+  #rating = "";
 
   constructor(movieid, moviename, movieurl) {
     this.id = movieid,
     this.name = moviename,
-    this.url = movieurl,
+    this.url = movieurl
   }
 
   get movieRating() {
@@ -34,13 +34,46 @@ class Cart {
 
 }
 
-
 class App {
-  init() {
+ static init() {
 
   }
 
+  static clearInput() {
+    inputName.value = "";
+    inputImg.value = "";
+    inputRating.value = "";
+
+  }
 }
 
+// Init var to dom element nodes
 let form = document.getElementById('myform');
+let appDiv = document.getElementById('app');
+let inputName = document.getElementById('name');
+let inputImg     = document.getElementById('img');
+let inputRating = document.getElementById('rating');
 
+let ul = document.createElement('ul');
+
+// Set attribute for ul
+ul.setAttribute("id", "movie-list")
+ul.setAttribute('class','visible');
+
+// Appending ul 
+appDiv.append(ul);
+
+// init obj
+let app = new App;
+
+// Form submit event
+form.addEventListener('submit', (event) => {
+
+  // Prevent defualt action
+  event.preventDefault();
+
+  let li = document.createElement('li')
+   console.log("prev")
+
+App.clearInput();
+});
