@@ -1,33 +1,46 @@
-let aBtn = document.getElementById("add-movie-btn");
-let sBtn = document.getElementById("search-btn");
-let movieArr = []
-let ul = document.getElementById('movie-list');
+class Movie {
+  #rating = movierating
 
-aBtn.addEventListener('click', () => {
-  let title = document.getElementById('title').value;
-  let extraInput = document.getElementById('extra-name').value;
-  let extravalue = document.getElementById('extra-value').value;
-
-  ul.classList.add('visible');
-  let  movie = {
-    title:  "",
-    extraInput:   "ddd"
+  constructor(movieid, moviename, movieurl) {
+    this.id = movieid,
+    this.name = moviename,
+    this.url = movieurl,
   }
-  movie.title = title;
 
+  get movieRating() {
+    return this.#rating;
+  }
 
-  movieArr.push(movie)
- // console.log(movie.keys())
-  showList(movieArr)
-});
-
-function showList(arr) {
-let li = document.createElement('li');
-
-arr.forEach((element,index, array) => {
-  li.innerHTML = `<h5> ${element.title}</h5> `
-  for (let i in )
-  ul.append(li)
-});
-  
+  set movieRating(value) {
+    this.#rating = value;
+    return this.name;
+  }
 }
+
+class Cart {
+  #movies = [];
+
+  constructor(movie) {
+    this.movie = movie;
+  }
+
+  appendMovie() {
+    this.#movies.push(this.movie);
+  }
+ 
+  deleteMovie(movieid) {
+    this.#movies.filter(mov => this.movie.id == movieid);
+  }
+
+}
+
+
+class App {
+  init() {
+
+  }
+
+}
+
+let form = document.getElementById('myform');
+
