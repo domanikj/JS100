@@ -24,14 +24,14 @@ class Cart {
     this.movie = movie;
   }
 
-  appendMovie() {
-    this.#movies.push(this.movie);
+  appendMovie(movie) {
+    
+    this.#movies.push(movie);
   }
  
   deleteMovie(movieid) {
     this.#movies.filter(mov => this.movie.id == movieid);
-  }
-
+  }   
 }
 
 class App {
@@ -43,9 +43,21 @@ class App {
     inputName.value = "";
     inputImg.value = "";
     inputRating.value = "";
-
   }
-}
+
+  static createMovie(mname, mimg, mrating) {
+    countId++;
+  
+    let movie = new Movie(mname, mimg, mrating);
+  
+    movie.id = countId;
+   
+    return movie;
+  }
+
+  
+} 
+
 
 // Init var to dom element nodes
 let form = document.getElementById('myform');
@@ -54,6 +66,7 @@ let inputName = document.getElementById('name');
 let inputImg     = document.getElementById('img');
 let inputRating = document.getElementById('rating');
 
+let countId = 1;
 let ul = document.createElement('ul');
 
 // Set attribute for ul
@@ -64,7 +77,6 @@ ul.setAttribute('class','visible');
 appDiv.append(ul);
 
 // init obj
-let app = new App;
 
 // Form submit event
 form.addEventListener('submit', (event) => {
@@ -72,8 +84,17 @@ form.addEventListener('submit', (event) => {
   // Prevent defualt action
   event.preventDefault();
 
-  let li = document.createElement('li')
-   console.log("prev")
+  let li = document.createElement('li');
+
+ let  name       =   inputName.value;
+ let  img          =   inputImg.value;
+ let  inputR      =   inputRating.value;  
+  
+  let creMovie =   App.createMovie(name, img, inputR);
+  console.log(creMovie);
+  li.innerHTML =  '<h1> hello </h1> '
+  
+  ul.append(li)
 
 App.clearInput();
 });
