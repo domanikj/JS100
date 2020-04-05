@@ -14,6 +14,10 @@ class Movie {
     this.#rating = value;
     return this.#rating;
   }
+
+  clog() {
+    console.log(this.name    + this.id)
+  }
 }
 
 //##########################
@@ -26,12 +30,14 @@ class Cart {
   }
  
   deleteMovie(movieid) {
-    this.#movies.filter(mov => this.movie.id == movieid);
+    this.#movies.filter(mov => this.movieid.id != movieid);
   }   
 
   get movieElem() {
      return this.#movies;
   }
+
+  
 }
 
 //############################
@@ -90,23 +96,33 @@ form.addEventListener('submit', (event) => {
  let  img          =   inputImg.value;
  let  inputR      =   inputRating.value;  
   
-  let creMovie =   App.createMovie(name, img, inputR);
+let creMovie =   App.createMovie(name, img, inputR);
  
  _cart.appendMovie(creMovie);
+ 
 
-//console.log(_cart.movieElem)
+ for (let i = 0; i < _cart.movieElem.length; i++) {
+     
+  li.innerHTML = ` <div class="card" style="width: 50%; margin-left: 300px;" >
+  <h1> Title </h1>
+  <h3>${_cart.movieElem[i].name} </h3>
+  <h1> Url </h1>
+ <h3>  ${_cart.movieElem[i].url} <h3>
+  <h1> Rating </h1>
+  <h3>  ${_cart.movieElem[i].movieRating} <h3>
+  <button class="delete"> Delete </button>
 
-if(_cart.movieElem.length > 3) {
-  console.log(_cart.movieElem[0] )
+  </div>` 
+ul.append(li);
+   }
+ App.clearInput();
+
+let deletebtn = document.querySelectorAll('.delete');
+for (let index = 0; index < deletebtn.length; index++) {
+  // deletebtn[index].addEventListener('click', _cart.deleteMovie(_cart.movieElem.id).bind(_cart)    );
+  deletebtn[index].addEventListener('click', _cart.movieElem.clog.bind);
+
 }
 
- // console.log(creMovie);
-  li.innerHTML =  `<div>
-     
-  fgfgdf
-  </div> `
-  
-  ul.append(li)
 
-App.clearInput();
-});
+})
