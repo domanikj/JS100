@@ -15,7 +15,8 @@ class Movie {
     return this.#rating;
   }
 
-  clog() {
+  clog(event) {
+    event.stopImmediatePropagation();
     console.log(this.name    + this.id)
   }
 }
@@ -114,15 +115,22 @@ let creMovie =   App.createMovie(name, img, inputR);
 
   </div>` 
 ul.append(li);
-   }
- App.clearInput();
 
 let deletebtn = document.querySelectorAll('.delete');
 for (let index = 0; index < deletebtn.length; index++) {
-  // deletebtn[index].addEventListener('click', _cart.deleteMovie(_cart.movieElem.id).bind(_cart)    );
-  deletebtn[index].addEventListener('click', _cart.movieElem.clog.bind);
+   deletebtn[index].addEventListener('click', _cart.movieElem[i].clog.bind(_cart.movieElem[i])    );
+ // deletebtn[index].addEventListener('click', _cart.movieElem.clog.bind(_cart));
 
 }
+   }
+ App.clearInput();
+
+// let deletebtn = document.querySelectorAll('.delete');
+// for (let index = 0; index < deletebtn.length; index++) {
+//   // deletebtn[index].addEventListener('click', _cart.deleteMovie(_cart.movieElem.id).bind(_cart)    );
+//   deletebtn[index].addEventListener('click', _cart.movieElem.clog.bind(_cart));
+
+// }
 
 
 })
